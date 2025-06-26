@@ -168,7 +168,10 @@ public class HomePage extends BasePage {
 
 	@FindBy(xpath = "(//span[contains(@class, 'bg-gradient-to-r') and contains(text(), 'Get Started')])[1]")
 	WebElement getStartedButton;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e080f94 (MOSIP-40423)
 
 	public Boolean isLogoDisplayed() {
 		return injiVerifyLogo.isDisplayed();

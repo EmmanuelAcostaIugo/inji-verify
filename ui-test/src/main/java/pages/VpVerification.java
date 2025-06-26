@@ -165,6 +165,7 @@ public class VpVerification extends BasePage {
 	public Boolean isVpVerificationQrCodeGenerated() {
 		return isElementIsVisible(driver, verificationQrCode);
 	}
+	
 
 	public Boolean isLoadingScreenDisplayed() {
 		return isElementIsVisible(driver, loadingScreen);

@@ -3053,7 +3053,6 @@ public void verify_upload_button_visible_after_2_mins_idle() {
 	    }
 	}
 
-
 	@Then("Verify that Upload icon visible")
 	public void verify_that_upload_icon_visible() {
 		Assert.assertTrue(homePage.isUploadIconIsVisible());
