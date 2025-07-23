@@ -34,15 +34,6 @@
 	</developers>
 	<repositories>
 		<repository>
-			<id>ossrh</id>
-			<name>CentralRepository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>ossrh-inji</id>
 			<name>CentralRepositoryInji</name>
 			<url>https://central.sonatype.com/repository/maven-snapshots</url>
@@ -69,7 +60,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-
 	</repositories>
 
 
