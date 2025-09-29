@@ -170,6 +170,40 @@
           }
         ]
       }
+    },
+    {
+      "logo": "/assets/cert.png",
+      "name": "Cedula Uruguaya",
+      "type": "CedulaUruguayaCredential",
+      "definition": {
+        "purpose": "Relying party is requesting your digital ID for the purpose of Self-Authentication",
+        "format": {
+          "ldp_vc": {
+            "proof_type": ["Ed25519Signature2020"]
+          }
+        },
+        "input_descriptors": [
+          {
+            "id": "id card credential",
+            "format": {
+              "ldp_vc": {
+                "proof_type": ["Ed25519Signature2020"]
+              }
+            },
+            "constraints": {
+              "fields": [
+                {
+                  "path": ["$.type"],
+                  "filter": {
+                    "type": "object",
+                    "pattern": "CedulaUruguayaCredential"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ]
 }

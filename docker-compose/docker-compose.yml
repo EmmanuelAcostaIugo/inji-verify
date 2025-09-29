@@ -6,7 +6,7 @@ services:
     image: mosipid/inji-verify-service:0.13.1
     user: root
     ports:
-      - "8080:8080"
+      - "8081:8080"
     build:
       context: ../verify-service
       dockerfile: Dockerfile
@@ -25,7 +25,7 @@ services:
 
   verify-ui:
     container_name: verify-ui
-    image: mosipid/inji-verify-ui:0.13.1
+    image: iugo/verify-ui:v0
     ports:
       - "3000:8000"
     build:
@@ -36,7 +36,7 @@ services:
       - DEFAULT_LANG=en
       - INTERNET_CONNECTIVITY_CHECK_ENDPOINT=${INTERNET_CONNECTIVITY_CHECK_ENDPOINT-https://dns.google/}
       - INTERNET_CONNECTIVITY_CHECK_TIMEOUT=${INTERNET_CONNECTIVITY_CHECK_TIMEOUT-10000}
-      - OVP_QR_HEADER={OVP_QR_HEADER-INJI_OVP://payload=}
+      - OVP_QR_HEADER=${OVP_QR_HEADER-INJI_OVP://payload=}
       - REACT_APP_VERIFY_API_URL=http://verify-service:8080/v1/verify
       - VERIFIABLE_CLAIMS_CONFIG_URL=/assets/config.json
     volumes:

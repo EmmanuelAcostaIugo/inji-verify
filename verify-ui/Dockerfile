@@ -47,7 +47,13 @@ ENV nginx_dir=/usr/share/nginx
 ENV work_dir=${nginx_dir}/html
 
 COPY configure_start.sh /configure_start.sh
+# Normalize script: remove CRLF and potential UTF-8 BOM to avoid exec errors
+RUN sed -i 's/\r$//' /configure_start.sh \
+ && sed -i '1s/^\xEF\xBB\xBF//' /configure_start.sh
+# Copy .env and normalize CRLF/BOM to ensure env.config.js is valid
 COPY .env ${nginx_dir}/html/.env
+RUN sed -i 's/\r$//' ${nginx_dir}/html/.env \
+ && sed -i '1s/^\xEF\xBB\xBF//' ${nginx_dir}/html/.env
 
 RUN chmod +x /configure_start.sh
 
