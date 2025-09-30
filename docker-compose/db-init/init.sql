@@ -1,3 +1,4 @@
+
 CREATE SCHEMA verify;
 
 CREATE TABLE IF NOT EXISTS verify.authorization_request_details (
@@ -9,7 +10,7 @@ CREATE TABLE IF NOT EXISTS verify.authorization_request_details (
 
 CREATE TABLE IF NOT EXISTS verify.presentation_definition(
     id character varying(36) NOT NULL,
-    input_descriptors jsonb NOT NULL,
+    input_descriptors TEXT NOT NULL,
     name character varying(500),
     purpose character varying(500),
     vp_format text,

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name = "presentation_definition")
+@Table(name = "presentation_definition", schema = "verify")
 @Getter
 @Entity
 @AllArgsConstructor

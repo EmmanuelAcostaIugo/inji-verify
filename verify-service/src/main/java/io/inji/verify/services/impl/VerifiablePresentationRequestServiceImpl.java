@@ -10,6 +10,7 @@ import io.inji.verify.enums.ErrorCode;
 import io.inji.verify.enums.VPRequestStatus;
 import io.inji.verify.exception.PresentationDefinitionNotFoundException;
 import io.inji.verify.models.AuthorizationRequestCreateResponse;
+import io.inji.verify.models.PresentationDefinition;
 import io.inji.verify.models.VPSubmission;
 import io.inji.verify.repository.AuthorizationRequestCreateResponseRepository;
 import io.inji.verify.repository.PresentationDefinitionRepository;
@@ -56,7 +57,11 @@ public class VerifiablePresentationRequestServiceImpl implements VerifiablePrese
         String requestId = Utils.generateID(Constants.REQUEST_ID_PREFIX);
         long expiresAt = Instant.now().plusSeconds(Constants.DEFAULT_EXPIRY).toEpochMilli();
         String nonce = vpRequestCreate.getNonce() != null ? vpRequestCreate.getNonce() : SecurityUtils.generateNonce();
-
+        log.info("Presentation definition ID: {}", vpRequestCreate.getPresentationDefinitionId());
+        //PresentationDefinition presentationDefinitionEntity = presentationDefinitionRepository.findById(vpRequestCreate.getPresentationDefinitionId()).orElseThrow(PresentationDefinitionNotFoundException::new);
+        List<PresentationDefinition> allPresentationDefinitions = presentationDefinitionRepository.findAll();
+        log.info("All presentation definitions: {}", allPresentationDefinitions);
+        //log.info("Presentation definition: {}", presentationDefinitionEntity);
         AuthorizationRequestResponseDto authorizationRequestResponseDto = Optional.ofNullable(vpRequestCreate.getPresentationDefinitionId())
                 .map(presentationDefinitionId -> presentationDefinitionRepository.findById(presentationDefinitionId)
                 .map(presentationDefinition -> {

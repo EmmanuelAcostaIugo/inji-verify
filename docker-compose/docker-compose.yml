@@ -3,7 +3,7 @@ version: '3.8'
 services:
   verify-service:
     container_name: verify-service
-    image: mosipid/inji-verify-service:0.13.1
+    image: iugo/verify-service:v0
     user: root
     ports:
       - "8081:8080"
@@ -52,6 +52,6 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: inji_verify
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - ./db-init:/docker-entrypoint-initdb.d
